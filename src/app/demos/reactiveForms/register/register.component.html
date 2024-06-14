@@ -1,0 +1,30 @@
+<div class="container main-container">
+    <h4>Demo Register</h4>
+    <hr>
+    <form class="row g-3" novalidate (ngSubmit)="AddUser()" [formGroup]="registerForm">
+      <div class="col-md-12">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your Full Name (required)" formControlName="name">
+      </div>
+      <div class="col-md-12">
+        <label for="cpf" class="form-label">CPF</label>
+        <input type="text" class="form-control" id="cpf" placeholder="Enter your CPF (required)" formControlName="cpf">
+      </div>
+      <div class="col-md-12">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email (required)" formControlName="email">
+      </div>
+      <div class="col-md-12">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password (required)" formControlName="password">
+      </div>
+      <div class="col-md-12">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password (required)" formControlName="confirmPassword">
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-success">Register</button>
+      </div>
+    </form>
+  </div>
+  
