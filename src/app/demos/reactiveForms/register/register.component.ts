@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule , ReactiveFormsModule , FormBuilder } from '@angular/forms';
-
+import { FormsModule , ReactiveFormsModule , FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -11,21 +10,21 @@ import { FormsModule , ReactiveFormsModule , FormBuilder } from '@angular/forms'
 })
 export class RegisterComponent {
 
-  registerForm =  this.fb.group({
-    name: [""],
-    cpf: [""],
-    email: [""],
-    password:[""],
-    confirmPassword:[""]
-  });
-
-  constructor(private fb: FormBuilder){}
+  registerForm? : FormGroup;
+ 
+  constructor(private fb: FormBuilder){ }
 
   ngOnInit(){
-  
+    this.registerForm = this.fb.group({
+      name: [""],
+      document: [""],
+      email: [""],
+      password:[""],
+      confirmPassword:[""]
+    });
   }
 
   AddUser() {
-      let formValues = this.registerForm.value;
+      let formValues = this.registerForm;
   }
 }
