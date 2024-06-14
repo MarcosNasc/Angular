@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule , ReactiveFormsModule , FormControl, FormGroup } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule , FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -11,15 +11,15 @@ import { FormsModule , ReactiveFormsModule , FormControl, FormGroup } from '@ang
 })
 export class RegisterComponent {
 
-  registerForm = new FormGroup({
-    name: new FormControl(""),
-    cpf: new FormControl(""),
-    email: new FormControl(""),
-    password: new FormControl(""),
-    confirmPassword: new FormControl("")
+  registerForm =  this.fb.group({
+    name: [""],
+    cpf: [""],
+    email: [""],
+    password:[""],
+    confirmPassword:[""]
   });
 
-  constructor(){}
+  constructor(private fb: FormBuilder){}
 
   ngOnInit(){
   
