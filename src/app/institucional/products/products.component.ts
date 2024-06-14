@@ -26,14 +26,14 @@ export class ProductsComponent {
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(
-      (response) => {
+    this.productService.getProducts().subscribe({
+      next: (response) => {
         this.products = response.products;
-        console.log(this.products)
+        console.log(this.products);
       },
-      (error) => {
+      error:(error)=> {
         console.error(error);
       }
-    );
+    });
   }
 }
