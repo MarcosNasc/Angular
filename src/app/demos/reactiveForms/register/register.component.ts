@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule , ReactiveFormsModule , FormBuilder, FormGroup } from '@angular/forms';
+import { User } from './models/User';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +12,7 @@ import { FormsModule , ReactiveFormsModule , FormBuilder, FormGroup } from '@ang
 export class RegisterComponent {
 
   registerForm? : FormGroup;
+  user! : User;
  
   constructor(private fb: FormBuilder){ }
 
@@ -25,6 +27,7 @@ export class RegisterComponent {
   }
 
   AddUser() {
-      let formValues = this.registerForm;
+      this.user = Object.assign({},this.user , this.registerForm?.value)
+      console.log(this.user);
   }
-}
+} 
