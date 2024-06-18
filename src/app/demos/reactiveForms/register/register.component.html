@@ -5,26 +5,116 @@
     <form class="row g-3" novalidate (ngSubmit)="AddUser()" [formGroup]="registerForm">
       <div class="col-md-12">
         <label for="name" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter your Full Name (required)" formControlName="name">
+        <input 
+              type="text" 
+              class="form-control" 
+              id="name" 
+              placeholder="Enter your Full Name (required)" 
+              formControlName="name"
+              [ngClass]="{'is-valid': !registerForm.get('name')?.errors,
+                          'is-invalid': registerForm.get('name')?.errors && (registerForm.get('name')?.dirty || registerForm.get('name')?.touched)  
+              }"
+        >
+
+        @if(registerForm.get("name")?.errors && (registerForm.get("name")?.dirty || registerForm.get("name")?.touched)){
+        <span class="text-danger">
+          <p>Preencha o campo Nome</p>
+        </span>
+      }
       </div>
+
       <div class="col-md-12">
         <label for="cpf" class="form-label">CPF</label>
-        <input type="text" class="form-control" id="document" placeholder="Enter your CPF (required)" formControlName="document">
+        <input 
+              type="text" 
+              class="form-control" 
+              id="document" 
+              placeholder="Enter your CPF (required)" 
+              formControlName="document"
+              [ngClass]="{'is-valid': !registerForm.get('document')?.errors,
+                          'is-invalid': registerForm.get('document')?.errors && (registerForm.get('document')?.dirty || registerForm.get('document')?.touched)  
+              }"
+        >
+        @if(registerForm.get("document")?.errors && (registerForm.get("document")?.dirty || registerForm.get("document")?.touched)){
+          <span class="text-danger">
+            <p>Preencha o campo CPF</p>
+          </span>       
+        }
       </div>
+
       <div class="col-md-12">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter your email (required)" formControlName="email">
+        <input 
+              type="email" 
+              class="form-control" 
+              id="email" 
+              placeholder="Enter your email (required)" 
+              formControlName="email"
+              [ngClass]="{'is-valid': !registerForm.get('email')?.errors,
+                          'is-invalid': registerForm.get('email')?.errors && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)  
+              }"
+        >
+        @if(registerForm.get("email")?.errors?.["required"] && (registerForm.get("email")?.dirty || registerForm.get("email")?.touched)){
+          <span class="text-danger">
+            <p>Preencha o campo Email</p>
+          </span>       
+        }
+        @if(registerForm.get("email")?.errors?.["email"] && (registerForm.get("email")?.dirty || registerForm.get("email")?.touched)){
+          <span class="text-danger">
+            <p>O campo Email está no formato inválido</p>
+          </span>       
+        }
       </div>
+
       <div class="col-md-12">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter your password (required)" formControlName="password">
+        <input 
+              type="password" 
+              class="form-control" 
+              id="password" 
+              placeholder="Enter your password (required)" 
+              formControlName="password"
+              [ngClass]="{'is-valid': !registerForm.get('password')?.errors,
+                          'is-invalid': registerForm.get('password')?.errors && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)  
+              }"
+        >
+        @if(registerForm.get("password")?.errors?.["required"] && (registerForm.get("password")?.dirty || registerForm.get("password")?.touched)){
+          <span class="text-danger">
+            <p>Preencha o campo Password</p>
+          </span>       
+        }
       </div>
+
       <div class="col-md-12">
         <label for="confirmPassword" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password (required)" formControlName="confirmPassword">
+        <input 
+              type="password" 
+              class="form-control" 
+              id="confirmPassword" 
+              placeholder="Confirm your password (required)" 
+              formControlName="confirmPassword"
+              [ngClass]="{'is-valid': !registerForm.get('confirmPassword')?.errors,
+                          'is-invalid': registerForm.get('confirmPassword')?.errors && (registerForm.get('confirmPassword')?.dirty || registerForm.get('confirmPassword')?.touched)  
+              }"
+        >
+        @if(registerForm.get("confirmPassword")?.errors?.["required"] && (registerForm.get("confirmPassword")?.dirty || registerForm.get("confirmPassword")?.touched)){
+          <span class="text-danger">
+            <p>Preencha o campo Password</p>
+          </span>       
+        }
       </div>
+
       <div class="col-12">
-        <button type="submit" class="btn btn-success">Register</button>
+        <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid">Register</button>
+      </div>
+
+      <div class="col-12">
+        <div class="col-md-12">
+          <p>Formulario valido: {{registerForm.valid}}</p>
+          <p>Formulario tocado: {{registerForm.touched}}</p>
+          <p>Formulario sujo: {{registerForm.dirty}}</p>
+          <p>Formulario: {{formResult}}</p>
+        </div>
       </div>
     </form>
   </div>
