@@ -11,14 +11,12 @@
               id="name" 
               placeholder="Enter your Full Name (required)" 
               formControlName="name"
-              [ngClass]="{'is-valid': !registerForm.get('name')?.errors,
-                          'is-invalid': registerForm.get('name')?.errors && (registerForm.get('name')?.dirty || registerForm.get('name')?.touched)  
-              }"
+              [ngClass]="{'is-invalid' : displayMessage['name']}"
         >
 
-        @if(registerForm.get("name")?.errors && (registerForm.get("name")?.dirty || registerForm.get("name")?.touched)){
+        @if(displayMessage['name']){
         <span class="text-danger">
-          <p>Preencha o campo Nome</p>
+          <p [innerHTML]="displayMessage['name']"></p>
         </span>
       }
       </div>
@@ -31,13 +29,11 @@
               id="document" 
               placeholder="Enter your CPF (required)" 
               formControlName="document"
-              [ngClass]="{'is-valid': !registerForm.get('document')?.errors,
-                          'is-invalid': registerForm.get('document')?.errors && (registerForm.get('document')?.dirty || registerForm.get('document')?.touched)  
-              }"
+              [ngClass]="{'is-invalid': displayMessage['document']}"
         >
-        @if(registerForm.get("document")?.errors && (registerForm.get("document")?.dirty || registerForm.get("document")?.touched)){
+        @if(displayMessage['document']){
           <span class="text-danger">
-            <p>Preencha o campo CPF</p>
+            <p [innerHTML]="displayMessage['document']"></p>
           </span>       
         }
       </div>
@@ -50,18 +46,11 @@
               id="email" 
               placeholder="Enter your email (required)" 
               formControlName="email"
-              [ngClass]="{'is-valid': !registerForm.get('email')?.errors,
-                          'is-invalid': registerForm.get('email')?.errors && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)  
-              }"
+              [ngClass]="{'is-invalid': displayMessage['email']}"
         >
-        @if(registerForm.get("email")?.errors?.["required"] && (registerForm.get("email")?.dirty || registerForm.get("email")?.touched)){
+        @if(displayMessage['email']){
           <span class="text-danger">
-            <p>Preencha o campo Email</p>
-          </span>       
-        }
-        @if(registerForm.get("email")?.errors?.["email"] && (registerForm.get("email")?.dirty || registerForm.get("email")?.touched)){
-          <span class="text-danger">
-            <p>O campo Email está no formato inválido</p>
+            <p [innerHTML]="displayMessage['email']"></p>
           </span>       
         }
       </div>
@@ -74,13 +63,11 @@
               id="password" 
               placeholder="Enter your password (required)" 
               formControlName="password"
-              [ngClass]="{'is-valid': !registerForm.get('password')?.errors,
-                          'is-invalid': registerForm.get('password')?.errors && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)  
-              }"
+              [ngClass]="{'is-invalid': displayMessage['password'] }"
         >
-        @if(registerForm.get("password")?.errors?.["required"] && (registerForm.get("password")?.dirty || registerForm.get("password")?.touched)){
+        @if(displayMessage['password']){
           <span class="text-danger">
-            <p>Preencha o campo Password</p>
+            <p [innerHTML]="displayMessage['password']"></p>
           </span>       
         }
       </div>
@@ -93,13 +80,11 @@
               id="confirmPassword" 
               placeholder="Confirm your password (required)" 
               formControlName="confirmPassword"
-              [ngClass]="{'is-valid': !registerForm.get('confirmPassword')?.errors,
-                          'is-invalid': registerForm.get('confirmPassword')?.errors && (registerForm.get('confirmPassword')?.dirty || registerForm.get('confirmPassword')?.touched)  
-              }"
+              [ngClass]="{'is-invalid': displayMessage['confirmPassword'] }"
         >
-        @if(registerForm.get("confirmPassword")?.errors?.["required"] && (registerForm.get("confirmPassword")?.dirty || registerForm.get("confirmPassword")?.touched)){
+        @if(displayMessage['confirmPassword']){
           <span class="text-danger">
-            <p>Preencha o campo Password</p>
+            <p [innerHTML]="displayMessage['confirmPassword']"></p>
           </span>       
         }
       </div>
