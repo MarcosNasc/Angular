@@ -5,18 +5,17 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AboutComponent } from './institucional/about/about.component';
 import { ContactComponent } from './institucional/contact/contact.component';
-import { ProductsComponent } from './ecommerce/products/products.component';
 import { provideHttpClient } from '@angular/common/http';
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
 import { RegisterComponent } from './demos/reactiveForms/register/register.component';
 import { NavigationModule } from './navegation/navigation.module';
+import { EcommerceModule } from './ecommerce/ecommerce.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     ContactComponent,
-    ProductsComponent,
     DataBindingComponent,
     RegisterComponent,
   ],
@@ -25,7 +24,8 @@ import { NavigationModule } from './navegation/navigation.module';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    NavigationModule
+    NavigationModule,
+    EcommerceModule
   ],
   providers: [
     provideHttpClient()
