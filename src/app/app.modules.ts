@@ -30,14 +30,10 @@ import { RegisterComponent } from './demos/reactiveForms/register/register.compo
   imports: [
     BrowserModule,
     FormsModule,
-    CommonModule,
     ReactiveFormsModule,
-    NgClass,
     AppRoutingModule,
     RouterOutlet,
     RouterModule,
-    TitleCasePipe,
-    CurrencyPipe
   ],
   providers: [
     provideHttpClient()
