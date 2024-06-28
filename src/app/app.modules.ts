@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app.routing.modules';
 import { AppComponent } from './app.component';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AboutComponent } from './institucional/about/about.component';
 import { ContactComponent } from './institucional/contact/contact.component';
@@ -27,7 +27,6 @@ import { NavigationModule } from './navegation/navigation.module';
     ReactiveFormsModule,
     AppRoutingModule,
     RouterOutlet,
-    RouterModule,
     NavigationModule
   ],
   providers: [
