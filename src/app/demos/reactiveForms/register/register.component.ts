@@ -1,14 +1,12 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
-import { FormsModule , ReactiveFormsModule , FormBuilder, FormGroup, Validators, FormControlName } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControlName } from '@angular/forms';
 import { User } from './models/User';
-import { NgClass } from '@angular/common';
 import { DisplayMessage, GenericValidator, ValidationMessages } from './generic-form-validations';
 import { Observable, fromEvent, merge } from 'rxjs';
 
 @Component({
   selector: 'app-register',
-  standalone: true,
-  imports: [FormsModule , ReactiveFormsModule,NgClass],
+  standalone: false,
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })

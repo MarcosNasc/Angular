@@ -1,7 +1,6 @@
 import { Component , LOCALE_ID , DEFAULT_CURRENCY_CODE} from "@angular/core";
 import { ProductService } from "./product.service";
 import { ProductItem } from "./ProductItem";
-import { TitleCasePipe , CurrencyPipe } from "@angular/common";
 import ptBr from '@angular/common/locales/pt';
 import {  registerLocaleData } from '@angular/common';
 registerLocaleData(ptBr);
@@ -9,8 +8,7 @@ registerLocaleData(ptBr);
 
 @Component({
   selector: "app-products",
-  standalone: true,
-  imports: [TitleCasePipe,CurrencyPipe],
+  standalone: false,
   templateUrl: "./products.component.html",
   styleUrls: ["./products.component.css"],
   providers: [

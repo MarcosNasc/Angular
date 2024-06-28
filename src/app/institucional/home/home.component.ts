@@ -1,10 +1,9 @@
-import { Component as home } from '@angular/core';
+import { Component } from '@angular/core';
 import { Item } from './item';
 
-@home({
+@Component({
   selector: 'app-main',
-  standalone: true,
-  imports: [],
+  standalone: false,
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
