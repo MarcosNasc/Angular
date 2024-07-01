@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ProductCard } from './ProductCard';
 
 @Component({
@@ -8,9 +8,14 @@ import { ProductCard } from './ProductCard';
 })
 export class ProductCardComponent {
   @Input() product ?: ProductCard;
+  @Output() status : EventEmitter<any> = new EventEmitter();
 
   ngOnInit(){
     console.log(this.product)
+  }
+
+  emitterEvent(){
+    this.status.emit(this.product);
   }
  
 }

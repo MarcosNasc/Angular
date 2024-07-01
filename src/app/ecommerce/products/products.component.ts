@@ -27,10 +27,19 @@ export class ProductsComponent {
     this.productService.getProducts().subscribe({
       next: (response) => {
         this.products = response.products;
+        this.products.forEach(product => {
+          product.status = true;
+        });
+        // console.log(this.products)
       },
       error:(error)=> {
         console.error(error);
       }
     });
+  }
+
+  changeStatus(event: ProductCard){
+    event.status = !event.status;
+    console.log(event)
   }
 }

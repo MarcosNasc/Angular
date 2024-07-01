@@ -10,6 +10,7 @@ export class ProductCard {
     category: string;
     thumbnail: string;
     images: string[];
+    status : boolean;
 
     constructor(
        id: number,
@@ -22,7 +23,8 @@ export class ProductCard {
        brand: string,
        category: string,
        thumbnail: string,
-       images: string[]
+       images: string[],
+       status: boolean
     ) {
 
       this.id = id;
@@ -36,6 +38,6 @@ export class ProductCard {
       this.category = category;
       this.thumbnail = thumbnail;
       this.images = images;
-
+      this.status = status;
     }
   }
