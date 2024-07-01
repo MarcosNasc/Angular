@@ -1,12 +1,12 @@
-import { ProductItem } from "./ProductItem";
+import { ProductCard } from "../product-card/ProductCard";
 
   export class Product {
-    products: ProductItem[];
+    products: ProductCard[];
     total: number;
     skip: number;
     limit: number;
   
-    constructor(products: ProductItem[], total: number, skip: number, limit: number) {
+    constructor(products: ProductCard[], total: number, skip: number, limit: number) {
       this.products = products;
       this.total = total;
       this.skip = skip;

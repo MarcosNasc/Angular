@@ -1,0 +1,32 @@
+                <div class="card h-100">
+                    <a class="text-decoration-none" routerLink="/produto-detalhe', produto.id">
+                        <div style="align-content:center;">
+                            <img src="{{product?.images?.[0]}}" height="164px" width="253px" alt="">
+                        </div>
+                    </a>
+
+                    <div class="card-body">
+                        <p>Por apenas:</p>
+                        <h4 class="card-title">{{ product?.title | titlecase }}</h4>
+                        @if (product?.discountPercentage) {
+                            <span class="badge bg-danger text-white">Promoção!</span>
+                        <div>
+                            <h4 class="card-text">De:
+                                <small><del>{{ product?.price| currency }}</del></small><br>
+                                Por: {{ product?.price | currency }}
+                            </h4>
+                        </div>
+                        }
+                        @else{
+                            <h4>{{product?.price| currency }}</h4>
+                        }
+                    </div>
+
+                    <div class="card-footer">
+                        <a class="btn btn-primary" routerLink="carrinho,produto.id">
+                            <span class="fa fa-shopping-cart"></span> Comprar
+                        </a>
+                    </div>
+                </div>
+
+   

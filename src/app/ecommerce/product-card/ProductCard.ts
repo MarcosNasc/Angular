@@ -1,4 +1,4 @@
-export class ProductItem {
+export class ProductCard {
     id: number;
     title: string;
     description: string;

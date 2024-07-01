@@ -1,8 +1,8 @@
 import { Component , LOCALE_ID , DEFAULT_CURRENCY_CODE} from "@angular/core";
 import { ProductService } from "./product.service";
-import { ProductItem } from "./ProductItem";
 import ptBr from '@angular/common/locales/pt';
 import {  registerLocaleData } from '@angular/common';
+import { ProductCard } from "../product-card/ProductCard";
 registerLocaleData(ptBr);
 
 
@@ -18,7 +18,7 @@ registerLocaleData(ptBr);
   ]
 })
 export class ProductsComponent {
-  public products?: ProductItem[];
+  public products?: ProductCard[];
 
 
   constructor(private productService: ProductService) {}
@@ -27,7 +27,6 @@ export class ProductsComponent {
     this.productService.getProducts().subscribe({
       next: (response) => {
         this.products = response.products;
-        console.log(this.products);
       },
       error:(error)=> {
         console.error(error);
