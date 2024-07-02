@@ -5,7 +5,7 @@
         @for(product of products; track product.id){
             <div class="col-md-4" style="padding-bottom: 30px;">
                  <app-product-card [product]="product" (status)="changeStatus($event)">
-
+                    <span class="ng-content">Me avisar quando estiver disponivel</span>
                  </app-product-card>  
             </div>     
         }
