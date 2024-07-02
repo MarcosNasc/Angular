@@ -29,8 +29,8 @@
                     </div>
 
                     <div class="card-footer">
-                        <a class="btn btn-primary" (click)="emitterEvent()">
-                            <span class="fa fa-shopping-cart"></span> Comprar
+                        <a [ngClass]="product?.status ? 'btn btn-success' : 'btn btn-danger'" (click)="emitterEvent()">
+                            <span [ngClass]="product?.status ? 'fa-solid fa-toggle-on': 'fa-solid fa-toggle-off'"></span>
                         </a>
                     </div>
                 </div>
