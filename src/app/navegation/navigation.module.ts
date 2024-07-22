@@ -4,6 +4,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { RouterModule } from '@angular/router';
     MenuComponent,
     HomeComponent,
     FooterComponent,
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { RouterModule } from '@angular/router';
   exports:[
     MenuComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent
   ]
 })
 export class NavigationModule { }
