@@ -1,8 +1,10 @@
-import { Component , LOCALE_ID , DEFAULT_CURRENCY_CODE} from "@angular/core";
+import { Component , LOCALE_ID , DEFAULT_CURRENCY_CODE, ViewChild, ElementRef, QueryList, ViewChildren} from "@angular/core";
 import { ProductService } from "./product.service";
 import ptBr from '@angular/common/locales/pt';
 import {  registerLocaleData } from '@angular/common';
 import { ProductCard } from "../product-card/ProductCard";
+import { fromEvent, Observable } from "rxjs";
+import { ProductCardComponent } from "../product-card/product-card.component";
 registerLocaleData(ptBr);
 
 
@@ -19,6 +21,9 @@ registerLocaleData(ptBr);
 })
 export class ProductsComponent {
   public products?: ProductCard[];
+
+  @ViewChild('test',{static: false}) screenMessage ?: ElementRef;
+  @ViewChildren(ProductCardComponent) productCards ?: QueryList<ProductCardComponent>;
 
 
   constructor(private productService: ProductService) {}
@@ -37,6 +42,20 @@ export class ProductsComponent {
       }
     });
   }
+
+  ngAfterViewInit() {
+    let clickText : Observable<any> = fromEvent(this.screenMessage?.nativeElement,'click');
+    clickText.subscribe(() => {
+      alert("click here!");
+      return;
+    })
+
+    console.log(this.productCards)
+    this.productCards?.forEach(p => {
+      console.log(p.product);
+    })
+  }
+  
 
   changeStatus(event: ProductCard){
     event.status = !event.status;
