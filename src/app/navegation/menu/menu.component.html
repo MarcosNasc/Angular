@@ -7,24 +7,12 @@
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
+
+        @for(item of nav; track item.id){
         <li class="nav-item">
-          <a class="nav-link" [routerLinkActiveOptions]="{ exact: true}" routerLinkActive="active" routerLink="/home">Home</a>
+          <a class="nav-link" [routerLinkActiveOptions]="{ exact: item.exact}" routerLinkActive="active" routerLink="{{item.link}}">{{item.name}}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActiveOptions]="{ exact: true}" routerLinkActive="active" routerLink="/products">Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActiveOptions]="{ exact: true}" routerLinkActive="active" routerLink="/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActiveOptions]="{ exact: true}" routerLinkActive="active" routerLink="/contact">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActiveOptions]="{ exact: true}" routerLinkActive="active" routerLink="/feature-data-binding">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLinkActiveOptions]="{ exact: true}" routerLinkActive="active" routerLink="/register">Register</a>
-        </li>
+        W}
       </ul>
     </div>
   </div>
