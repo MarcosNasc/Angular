@@ -1,4 +1,4 @@
-                <div class="card h-100">
+                    <div class="card h-100">
                     <a class="text-decoration-none" routerLink="/produto-detalhe', produto.id">
                         <div style="align-content:center;">
                             <img src="{{product?.images?.[0]}}" height="164px" width="253px" alt="">
@@ -14,7 +14,7 @@
                             <div>
                                 <h4 class="card-text">De:
                                     <small><del>{{ product?.price| currency }}</del></small><br>
-                                    Por: {{ product?.price | currency }}
+                                    Por: {{ (product?.price ?? 0) - (product?.discountPercentage ?? 0) | currency }}
                                 </h4>
                             </div>
                             }
