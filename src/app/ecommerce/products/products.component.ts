@@ -50,9 +50,9 @@ export class ProductsComponent {
       return;
     })
 
-    console.log(this.productCards)
+    // console.log(this.productCards)
     this.productCards?.forEach(p => {
-      console.log(p.product);
+      //console.log(p.product);
     })
   }
   

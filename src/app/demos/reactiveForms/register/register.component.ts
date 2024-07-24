@@ -77,7 +77,7 @@ export class RegisterComponent implements OnInit , AfterViewInit{
     if(this.registerForm.dirty && this.registerForm.valid){
       this.user = Object.assign({},this.user , this.registerForm.value)
       this.formResult = JSON.stringify(this.registerForm.value);
-      console.log(this.user);
+      // console.log(this.user);
     }else{
       this.formResult = "Não submeteu!";
     }

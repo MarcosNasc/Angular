@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Nav } from './nav';
+import { Nav } from './Nav';
 
 @Component({
   selector: 'app-menu',
@@ -21,7 +21,7 @@ export class MenuComponent {
       id:2,
       link:'/products',
       name:'Products',
-      exact:true,
+      exact:false,
       admin: false,
     },
     {

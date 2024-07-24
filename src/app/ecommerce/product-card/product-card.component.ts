@@ -11,7 +11,7 @@ export class ProductCardComponent {
   @Output() status : EventEmitter<any> = new EventEmitter();
 
   ngOnInit(){
-    console.log(this.product)
+    // console.log(this.product)
   }
 
   emitterEvent(){
