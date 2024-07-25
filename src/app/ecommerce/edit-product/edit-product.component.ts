@@ -1,5 +1,5 @@
 import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../products/product.service';
 import { ProductCard } from '../product-card/ProductCard';
 
@@ -19,7 +19,8 @@ export class EditProductComponent {
 
   constructor(
     private route: ActivatedRoute, 
-    private productService : ProductService
+    private productService : ProductService,
+    private router : Router
   )
   {
   }
@@ -36,6 +37,6 @@ export class EditProductComponent {
   }
 
   salvar() : void {
-
+    this.router.navigate(["/products"]);
   }
 }
