@@ -12,6 +12,7 @@ import { NavigationModule } from './navegation/navigation.module';
 import { EcommerceModule } from './ecommerce/ecommerce.module';
 import { AdminModule } from './admin/admin.module';
 import { AuthGuard } from './services/app.guard';
+import { RegisterGuard } from './services/register.guard';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthGuard } from './services/app.guard';
   ],
   providers: [
     provideHttpClient(),
-    AuthGuard
+    AuthGuard,
+    RegisterGuard
   ],
   bootstrap: [AppComponent]
 })

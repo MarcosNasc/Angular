@@ -7,6 +7,7 @@ import { DataBindingComponent } from './demos/data-binding/data-binding.componen
 import { RegisterComponent } from './demos/reactiveForms/register/register.component';
 import { NotFoundComponent } from './navegation/not-found/not-found.component';
 import { AuthGuard } from './services/app.guard';
+import { RegisterGuard } from './services/register.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home' , pathMatch:'full'},
@@ -17,7 +18,7 @@ const routes: Routes = [
       loadChildren:() => import("./ecommerce/ecommerce.module")
       .then(m => m.EcommerceModule)},    
       { path:'feature-data-binding' , component : DataBindingComponent},    
-      { path:'register', component:RegisterComponent},
+      { path:'register', component:RegisterComponent , canDeactivate:[RegisterGuard]},
     { path: "admin",
       loadChildren:() => import("./admin/admin.module")
       .then(m => m.AdminModule),
