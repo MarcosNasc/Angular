@@ -10,6 +10,8 @@ import { DataBindingComponent } from './demos/data-binding/data-binding.componen
 import { RegisterComponent } from './demos/reactiveForms/register/register.component';
 import { NavigationModule } from './navegation/navigation.module';
 import { EcommerceModule } from './ecommerce/ecommerce.module';
+import { AdminModule } from './admin/admin.module';
+import { AuthGuard } from './services/app.guard';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,12 @@ import { EcommerceModule } from './ecommerce/ecommerce.module';
     ReactiveFormsModule,
     AppRoutingModule,
     NavigationModule,
-    EcommerceModule
+    EcommerceModule,
+    AdminModule,
   ],
   providers: [
-    provideHttpClient()
+    provideHttpClient(),
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

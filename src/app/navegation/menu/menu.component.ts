@@ -52,5 +52,12 @@ export class MenuComponent {
       exact:true,
       admin: false,
     },
+    {
+      id:7,
+      link:'/admin',
+      name:'Admin',
+      exact:true,
+      admin: false,
+    },
   ]
 }

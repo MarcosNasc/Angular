@@ -6,6 +6,7 @@ import { ContactComponent } from './institucional/contact/contact.component';
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
 import { RegisterComponent } from './demos/reactiveForms/register/register.component';
 import { NotFoundComponent } from './navegation/not-found/not-found.component';
+import { AuthGuard } from './services/app.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home' , pathMatch:'full'},
@@ -17,6 +18,12 @@ const routes: Routes = [
       .then(m => m.EcommerceModule)},    
       { path:'feature-data-binding' , component : DataBindingComponent},    
       { path:'register', component:RegisterComponent},
+    { path: "admin",
+      loadChildren:() => import("./admin/admin.module")
+      .then(m => m.AdminModule),
+      canLoad:[AuthGuard],
+      canActivate:[AuthGuard]
+    },
       
       { path: '**' , component: NotFoundComponent}
 ];;
