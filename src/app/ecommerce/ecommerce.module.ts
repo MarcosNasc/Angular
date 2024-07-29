@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EcommerceRoutingModule } from './ecommerce-routing.module';
+import { EcommerceRoutingModule } from './ecommerce.routing.modules';
 import { ProductsComponent } from './products/products.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
