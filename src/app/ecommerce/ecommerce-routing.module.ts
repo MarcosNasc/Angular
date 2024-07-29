@@ -9,7 +9,14 @@ const routes: Routes = [
   {path:"" , component: EcommerceAppComponent,
     children:[
       {path:"", redirectTo:"all" , pathMatch:'full'},
-      {path:":state", component:ProductsComponent , resolve : { products: ProductResolve } },
+      {
+        path:":state", 
+        component:ProductsComponent , 
+        resolve : { products: ProductResolve } ,
+        data: {
+          teste:"informação"
+        }
+      },
       {path:"edit/:id", component:EditProductComponent}
     ]},
 ];

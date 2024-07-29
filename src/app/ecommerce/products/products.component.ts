@@ -45,6 +45,7 @@ export class ProductsComponent {
     //   }
     // });
     this.products = this.route.snapshot.data['products'];
+    console.log(this.route.snapshot.data['teste']);
   }
 
   ngAfterViewInit() {
