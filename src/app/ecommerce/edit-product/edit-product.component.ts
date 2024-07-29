@@ -1,6 +1,6 @@
 import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../products/product.service';
+import { ProductService } from '../products/Services/product.service';
 import { ProductCard } from '../product-card/ProductCard';
 
 @Component({

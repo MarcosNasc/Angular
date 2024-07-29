@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from './Product';
-import { ProductCard } from '../product-card/ProductCard';
+import { Product } from '../Product';
+import { ProductCard } from '../../product-card/ProductCard';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class ProductService {
 
   protected UrlServiceV1: string = "https://dummyjson.com";
 
-  getProducts(): Observable<Product> {
+  getProducts(state: string): Observable<Product> {
     let products = this.http.get<Product>(this.UrlServiceV1 + "/products");
     return products;
   }

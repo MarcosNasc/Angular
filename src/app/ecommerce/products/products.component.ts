@@ -1,10 +1,11 @@
 import { Component , LOCALE_ID , DEFAULT_CURRENCY_CODE, ViewChild, ElementRef, QueryList, ViewChildren} from "@angular/core";
-import { ProductService } from "./product.service";
+import { ProductService } from "./Services/product.service";
 import ptBr from '@angular/common/locales/pt';
 import {  registerLocaleData } from '@angular/common';
 import { ProductCard } from "../product-card/ProductCard";
 import { fromEvent, Observable } from "rxjs";
 import { ProductCardComponent } from "../product-card/product-card.component";
+import { ActivatedRoute } from "@angular/router";
 registerLocaleData(ptBr);
 
 
@@ -26,21 +27,24 @@ export class ProductsComponent {
   @ViewChildren(ProductCardComponent) productCards ?: QueryList<ProductCardComponent>;
 
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService,
+              private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.productService.getProducts().subscribe({
-      next: (response) => {
-        this.products = response.products;
-        this.products.forEach(product => {
-          product.status = true;
-        });
-        // console.log(this.products)
-      },
-      error:(error)=> {
-        console.error(error);
-      }
-    });
+    // this.productService.getProducts().subscribe({
+    //   next: (response) => {
+    //     this.products = response.products;
+    //     this.products.forEach(product => {
+    //       product.status = true;
+    //     });
+    //     // console.log(this.products)
+    //   },
+    //   error:(error)=> {
+    //     console.error(error);
+    //   }
+    // });
+    this.products = this.route.snapshot.data['products'];
   }
 
   ngAfterViewInit() {

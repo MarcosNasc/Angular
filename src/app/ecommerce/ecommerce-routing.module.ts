@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { EcommerceAppComponent } from './ecommerce.app.component';
+import { ProductResolve } from './products/Services/product.resolve';
 
 const routes: Routes = [
   {path:"" , component: EcommerceAppComponent,
     children:[
-      {path:"", component:ProductsComponent},
+      {path:"", redirectTo:"all" , pathMatch:'full'},
+      {path:":state", component:ProductsComponent , resolve : { products: ProductResolve } },
       {path:"edit/:id", component:EditProductComponent}
     ]},
 ];
